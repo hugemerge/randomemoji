@@ -11,6 +11,9 @@ print("before: {}".format(len(emojilist)))
 ## remove no "shortname"
 emojilist = [i for i in emojilist if i["shortname"] != ""]
 
+## remove nation flag
+emojilist = [i for i in emojilist if not i["shortname"][:6] in (":flag_", ":flag-")]
+
 # write json
 ## show
 print("after: {}".format(len(emojilist)))
