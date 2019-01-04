@@ -3,16 +3,18 @@ import json
 # load json
 with open('emoji-json/emojis.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
-emojilsit = data["emojis"]
+emojilist = data["emojis"]
 ## show number of emojis
-print("before: {}".format(len(emojilsit)))
+print("before: {}".format(len(emojilist)))
 
 # edit
+## remove no "shortname"
+emojilist = [i for i in emojilist if i["shortname"] != ""]
 
 # write json
 ## show
-print("after: {}".format(len(emojilsit)))
+print("after: {}".format(len(emojilist)))
 
 with open("emojis_picked.json", "w", encoding="utf-8") as out:
-    data["emojis"] = emojilsit
+    data["emojis"] = emojilist
     json.dump(data, out, indent=2, ensure_ascii=False, separators=(',', ': '))
