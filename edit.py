@@ -14,6 +14,9 @@ emojilist = [i for i in emojilist if i["shortname"] != ""]
 ## remove nation flag
 emojilist = [i for i in emojilist if not i["shortname"][:6] in (":flag_", ":flag-")]
 
+## remove that category is symbol
+emojilist = [i for i in emojilist if i["category"] != "s"]
+
 # write json
 ## show
 print("after: {}".format(len(emojilist)))
